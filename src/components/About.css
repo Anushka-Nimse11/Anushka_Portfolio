@@ -1,0 +1,110 @@
+#about {
+   
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+}
+
+.aboutMe{
+    display: flex;
+    color: #ffffff;
+    margin-top: 100px;
+    width: 100%;
+    justify-content: space-between;
+    /* align-items: center; */
+    padding: 75px;
+
+    .aboutMe {
+    animation: fadeUp 1s ease;
+}
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(80px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.marks {
+    display: grid;
+    grid-template-columns: repeat(2, 230px);
+    grid-auto-rows: 200px;
+    gap: 2px 15px;
+    
+}
+
+.internship,
+.project,
+.CGPA,
+.percentage {
+    border: 1px solid #565151;
+    width: 230px;
+    height: 180px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 10px;
+
+    background-color: rgb(15, 17, 42);
+
+    transition: 0.3s ease;
+}
+
+
+.internship:hover,
+.project:hover,
+.CGPA:hover,
+.percentage:hover{
+     border: 1px solid aqua;
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(0,255,255,0.15);
+}
+
+.number{
+    font-size: 40px;
+    font-weight: 600;
+    color: aqua;
+}
+
+.type{
+    color: #dcdcdc;
+}
+
+
+.aboutIntro{
+    max-width: 650px;
+    padding-left: 50px;
+}
+
+.aboutIntro h1{
+    font-size: 50px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.aboutIntro h1 span{
+    color: aqua;
+}
+
+.aboutIntro h3{
+    font-size: 25px;
+    font-weight: 600;
+    color: aqua;
+    margin-bottom: 25px;
+}
+
+.aboutIntro p{
+    font-size: 17px;
+    line-height: 1.65;
+    color: #dcdcdc;
+    text-align: justify;
+}
