@@ -1,0 +1,174 @@
+#skills {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 100px 10%;
+}
+
+.skills-layout {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    animation: fadeUp 2s ease;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(80px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.skills-header .name {
+    font-size: 70px;
+    font-weight: 700;
+    /* margin-bottom: 0px; */
+    color: #ffffff;
+}
+
+.skills-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    width: 100%;
+}
+
+
+.skills-category-card {
+    background: transparent;
+    border: 1px solid #4b4b4b; /* Aligns with your native icon/button outer borders */
+    border-radius: 16px;
+    padding: 35px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    transition: 0.3s ease;
+    width: 100%;
+    height: 95%;
+}
+
+.category-icon-frame {
+    font-size: 24px;
+    color: #cbd5e1;
+    margin-bottom: 20px;
+}
+
+.skills-category-card h3 {
+    font-size: 22px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 25px;
+}
+
+.skills-pills-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skills-custom-pill {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid #4b4b4b;
+    color: #cbd5e1;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 10px;
+    transition: 0.3s ease;
+}
+
+/* Reusing your home component interactive hover properties */
+.skills-category-card:hover {
+    border-color: aqua;
+    box-shadow: 0 0 20px aqua;
+}
+
+.skills-category-card:hover .skills-custom-pill {
+    border-color: rgba(0, 255, 255, 0.3);
+    color: white;
+}
+
+/* Bottom shelf applying your profile image multi-directional neon glow signature */
+.skills-shelf-row {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.skills-shelf-block {
+    background: transparent;
+    border: 2px solid #4b4b4b;
+    border-radius: 50%; /* Swapped to circles to match your portfolio's profile style */
+    width: 130px;
+    height: 130px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: 0.5s ease;
+}
+
+.shelf-icon-embed {
+    font-size: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.shelf-icon-text {
+    font-size: 13px;
+    font-weight: 600;
+    color: #cbd5e1;
+}
+
+/* Replicated your complex image glowing ring profile logic inside the bottom shelf cards */
+.skills-shelf-block:hover {
+    transform: scale(1.08);
+       border-color: aqua;
+    box-shadow: 0 0 20px aqua;
+}
+
+.skills-shelf-block:hover .shelf-icon-text {
+    color: white;
+}
+
+/* Technical Color branding */
+.theme-js { color: #f7df1e; }
+.theme-react { color: #61dafb; }
+.theme-java { color: #f89820; }
+.theme-mongo { color: #47a248; }
+
+/* Dynamic Layout Scaling Adjustments */
+@media (max-width: 1024px) {
+    .skills-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .skills-cards-grid {
+        grid-template-columns: 1fr;
+    }
+    .skills-header .name {
+        font-size: 48px;
+    }
+    .skills-shelf-row {
+        flex-wrap: wrap;
+    }
+    .skills-shelf-block {
+        width: 110px;
+        height: 110px;
+    }
+    .shelf-icon-embed {
+        font-size: 28px;
+    }
+}

@@ -7,12 +7,16 @@
 }
 
 body{
-    background-color: rgb(13, 15, 45);
+    /* background-color: rgb(13, 15, 45); */
+    /* background: #020024; */
+background: linear-gradient(90deg,rgba(2, 0, 36, 1) 0%, rgb(13, 13, 76) 35%, rgb(25, 114, 132) 100%);
     font-family: "Poppins", sans-serif;
 }
 
 .navbar {
-    background-color: rgb(13, 15, 45);
+    /* background-color: rgb(14, 16, 50); */
+    /* background: #020024; */
+background: linear-gradient(90deg,rgba(2, 0, 36, 1) 0%, rgb(13, 13, 76) 35%, rgb(25, 114, 132) 100%);
     color: white;
     position: fixed;
     padding: 40px 85px;
@@ -23,7 +27,7 @@ body{
     justify-content: space-between;
     align-items: center;
     z-index: 100;
-    border-bottom: 1px solid rgb(12, 10, 10);
+    border-bottom: 1px solid rgb(13, 13, 76);
 }
 
 .navbar span{

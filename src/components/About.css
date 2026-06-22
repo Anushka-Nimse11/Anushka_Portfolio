@@ -14,9 +14,7 @@
     /* align-items: center; */
     padding: 75px;
 
-    .aboutMe {
     animation: fadeUp 1s ease;
-}
 }
 
 @keyframes fadeUp {
@@ -53,7 +51,7 @@
 
     border-radius: 10px;
 
-    background-color: rgb(15, 17, 42);
+    background-color: #0d1142;
 
     transition: 0.3s ease;
 }
