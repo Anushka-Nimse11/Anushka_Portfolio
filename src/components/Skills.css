@@ -2,14 +2,14 @@
     min-height: 100vh;
     display: flex;
     align-items: center;
-    padding: 100px 10%;
+    padding: 100px 15%;
 }
 
 .skills-layout {
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 60px;
+    gap: 55px;
     animation: fadeUp 2s ease;
 }
 
@@ -25,7 +25,7 @@
 }
 
 .skills-header .name {
-    font-size: 70px;
+    font-size: 50px;
     font-weight: 700;
     /* margin-bottom: 0px; */
     color: #ffffff;
@@ -90,7 +90,7 @@
 }
 
 .skills-category-card:hover .skills-custom-pill {
-    border-color: rgba(0, 255, 255, 0.3);
+    border-color: #00ffff4d;
     color: white;
 }
 
@@ -133,7 +133,7 @@
 /* Replicated your complex image glowing ring profile logic inside the bottom shelf cards */
 .skills-shelf-block:hover {
     transform: scale(1.08);
-       border-color: aqua;
+    border-color: aqua;
     box-shadow: 0 0 20px aqua;
 }
 

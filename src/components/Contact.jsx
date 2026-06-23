@@ -1,7 +1,11 @@
 function Contact() {
   return (
     <div id="contact">
-      <h1>Contact</h1>
+      <p>
+        pasjdcn eijffec dcnejnccbbbbbbbbb ekkkhsbxshx wehcw xbcxsyeufcb
+        ejcvnwiefjgvbn rgjbnvdvbeyf wuedh wudnhhbvjgtthbjnkbnml, whfd
+        hwcbshcbyrgfbs c fcwds vghtscnb
+      </p>
     </div>
   );
 }
