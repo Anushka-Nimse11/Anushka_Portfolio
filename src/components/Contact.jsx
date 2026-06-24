@@ -1,5 +1,5 @@
 import "./Contact.css";
-import { FaLinkedin } from "react-icons/fa";
+import { FaLinkedin, FaPhone, FaEnvelope, FaLink } from "react-icons/fa";
 
 function Contact() {
   return (
@@ -11,36 +11,93 @@ function Contact() {
 
         <div className="contactInfo">
           <div className="general-info">
+            <div className="contact-description">
+              <p>
+                Open to internships, collaborative projects, and full-time
+                software development opportunities. Let's build something
+                amazing together.
+              </p>
+            </div>
+
+            {/* Email */}
             <div className="email">
-              <h3>EMAIL</h3>
-              <p>anushkanimse2005@gmail.com</p>
+              {/* icon */}
+              <div className="icon">
+                <FaEnvelope className="email-icon" />
+              </div>
+
+              {/* text */}
+              <div className="emailInfo">
+                <h3>EMAIL</h3>
+                <a href="mailto:anushkanimse2005@gmail.com">
+                  anushkanimse2005@gmail.com
+                </a>
+              </div>
             </div>
+
+            {/* Phone */}
             <div className="phone">
-              <h3>PHONE</h3>
-              <p>8999122840</p>
+              {/* icon */}
+              <div className="icon">
+                <FaPhone className="phone-icon" />
+              </div>
+
+              {/* text */}
+              <div className="phoneInfo">
+                <h3>PHONE</h3>
+                <p>Contact via Email or LinkedIn</p>
+              </div>
             </div>
+
+            {/* Link */}
             <div className="link">
-              <a href="https://www.linkedin.com/in/anushka-nimse-96b15b29b/">
-                <FaLinkedin />
-                Anushka Nimse
-              </a>
+              {/* icon */}
+              <div className="icon">
+                <FaLink className="link-icon" />
+              </div>
+
+              {/* text */}
+              <div className="linkedinInfo">
+                <h3>LINKEDIN</h3>
+                <a
+                  href="https://www.linkedin.com/in/anushka-nimse-96b15b29b/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Anushka Nimse
+                </a>
+              </div>
             </div>
           </div>
 
           {/* Form */}
           <form>
-            <label>Name</label>
-            <input type="text" placeholder="Your Name" required />
-            <label>Email</label>
-            <input type="email" placeholder="your@email.com" required />
+            <div className="form-row">
+              {/* name */}
+              <div className="input-group">
+                <label>Name</label>
+                <input type="text" placeholder="Your Name" required />
+              </div>
+
+              {/* email */}
+              <div className="input-group">
+                <label>Email</label>
+                <input type="email" placeholder="your@email.com" required />
+              </div>
+            </div>
+
+            {/* subject */}
             <label>Subject</label>
             <input type="text" placeholder="What's this about?" required />
+
+            {/* message */}
             <label>Message</label>
-            <input
-              type="text"
-              placeholder="Tell me about opportunity"
+            <textarea
+              placeholder="Tell me about the opportunity"
+              rows="5"
               required
-            />
+            ></textarea>
+            <button type="submit">Send Message</button>
           </form>
         </div>
       </div>

@@ -12,8 +12,155 @@
     gap: 55px;
 }
 
-.contact-header{
+.heading{
     color: #ffff;
+    margin-bottom: 10px;
     font-size: 50px;
     font-weight: 700;
+}
+
+.contactInfo{
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    gap: 80px;
+}
+
+.general-info{
+    color: #858688;
+    width: 50%;
+    
+}
+
+.contact-description{
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.email, .phone, .link{
+    display: flex;
+    margin-bottom: 20px;
+    border: 1px solid #858688;
+    border-radius: 16px;
+    padding: 20px;
+    gap: 15px;
+    align-items: center;
+    transition: 0.3s ease;
+}
+
+.email:hover,
+.phone:hover,
+.link:hover{
+    transform: translateY(-4px);
+    border-color: #00e5ff;
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.15);
+}
+
+
+.emailInfo a, .phoneInfo p, .linkedinInfo a{
+    text-decoration: none;
+    color: #ffff;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.emailInfo a,
+.linkedinInfo a{
+    transition: 0.3s ease;
+}
+
+.emailInfo a:hover,
+.linkedinInfo a:hover{
+    color: #00e5ff;
+}
+
+.icon{
+    font-size: 23px;
+}
+
+.phone-icon{
+    color: #a70101e9;
+}
+
+.email-icon, .link-icon{
+    color: #e3ebf2;
+}
+
+/* Form */
+
+form {
+  width: 50%;
+  max-width: 550px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+}
+
+form label {
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  font-size: 1rem;
+  outline: none;
+  transition: 0.3s ease;
+}
+.form-row{
+    display: flex;
+    gap: 15px;
+}
+
+.input-group{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+
+form input::placeholder,
+form textarea::placeholder {
+  color: #a0a0a0;
+}
+
+form input:focus,
+form textarea:focus {
+  border-color: #00e5ff;
+  box-shadow: 0 0 12px rgba(0, 229, 255, 0.3);
+}
+
+form textarea {
+  resize: none;
+}
+
+form button {
+  margin-top: 10px;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: #00e5ff;
+  color: #111;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 229, 255, 0.35);
 }
