@@ -133,8 +133,8 @@
 }
 
 .image img {
-    width: 430px;
-    height: 430px;
+   width: min(430px, 90vw);
+    height: min(430px, 90vw);
     object-fit: cover;
     border-radius: 50%;
     border: 4px solid #5f9595;
@@ -179,4 +179,122 @@
     color: aqua;
     box-shadow: 0 0 20px aqua;
     border-color: aqua;
+}
+
+
+
+/* Tablet */
+@media (max-width: 1024px) {
+    #home {
+        padding: 80px 8%;
+    }
+
+    .home {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 50px;
+        margin-top: 50px;
+    }
+
+    .name {
+        font-size: 55px;
+    }
+
+    .profession {
+        font-size: 28px;
+    }
+
+    .intro p {
+        max-width: 100%;
+    }
+
+    .image img {
+        width: 350px;
+        height: 350px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    #home {
+        padding: 80px 5%;
+    }
+
+    .home {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 40px;
+        margin-top: 30px;
+    }
+
+    .hello {
+        font-size: 24px;
+    }
+
+    .name {
+        font-size: 42px;
+        line-height: 1.2;
+    }
+
+    .profession {
+        font-size: 22px;
+        min-height: auto;
+    }
+
+    .intro p {
+        font-size: 16px;
+        line-height: 1.7;
+    }
+
+    .resume {
+        padding: 10px 22px;
+        font-size: 16px;
+    }
+
+    .image img {
+        width: 280px;
+        height: 280px;
+    }
+
+    .social-icons a {
+        width: 42px;
+        height: 42px;
+        font-size: 18px;
+        margin-right: 12px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .hello {
+        font-size: 20px;
+    }
+
+    .name {
+        font-size: 34px;
+    }
+
+    .profession {
+        font-size: 18px;
+    }
+
+    .intro p {
+        font-size: 14px;
+    }
+
+    .image img {
+        width: 220px;
+        height: 220px;
+    }
+
+    .social-icons {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .social-icons a {
+        margin-right: 0;
+    }
 }

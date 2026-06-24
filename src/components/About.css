@@ -26,8 +26,8 @@
 
 /* ── Stat cards grid ── */
 .marks {
-    display: grid;
-    grid-template-columns: repeat(2, 230px);
+   display: grid;
+    grid-template-columns: repeat(2, minmax(180px, 230px));
     grid-auto-rows: 200px;
     gap: 2px 15px;
 }
@@ -161,5 +161,124 @@
     to {
         opacity: 1;
         transform: translateX(0);
+    }
+}
+
+
+
+
+/* Tablet */
+@media (max-width: 1024px) {
+    #about {
+        padding: 80px 8%;
+    }
+
+    .aboutMe {
+        flex-direction: column;
+        gap: 50px;
+        margin-top: 50px;
+    }
+
+    .marks {
+        justify-content: center;
+        grid-template-columns: repeat(2, 220px);
+        margin: 0 auto;
+    }
+
+    .aboutIntro {
+        max-width: 100%;
+        padding-left: 0;
+        text-align: center;
+    }
+
+    .aboutIntro p {
+        text-align: center;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    #about {
+        padding: 70px 5%;
+    }
+
+    .aboutMe {
+        flex-direction: column;
+        gap: 40px;
+        margin-top: 30px;
+    }
+
+    .marks {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        width: 100%;
+    }
+
+    .internship,
+    .project,
+    .CGPA,
+    .percentage {
+        width: 100%;
+        height: 160px;
+    }
+
+    .number {
+        font-size: 32px;
+    }
+
+    .type {
+        font-size: 13px;
+        text-align: center;
+        padding: 0 10px;
+    }
+
+    .aboutIntro {
+        padding-left: 0;
+        text-align: center;
+    }
+
+    .aboutIntro h1 {
+        font-size: 40px;
+    }
+
+    .aboutIntro h3 {
+        font-size: 22px;
+    }
+
+    .aboutIntro p {
+        font-size: 16px;
+        text-align: justify;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .marks {
+        grid-template-columns: 1fr;
+    }
+
+    .internship,
+    .project,
+    .CGPA,
+    .percentage {
+        width: 100%;
+        height: 140px;
+    }
+
+    .number {
+        font-size: 28px;
+    }
+
+    .aboutIntro h1 {
+        font-size: 32px;
+    }
+
+    .aboutIntro h3 {
+        font-size: 18px;
+    }
+
+    .aboutIntro p {
+        font-size: 14px;
+        line-height: 1.7;
     }
 }
