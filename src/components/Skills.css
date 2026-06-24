@@ -10,7 +10,7 @@
     display: flex;
     flex-direction: column;
     gap: 55px;
-    animation: fadeUp 2s ease;
+    animation: fadeUp 1s ease;
 }
 
 @keyframes fadeUp {
@@ -24,13 +24,34 @@
     }
 }
 
+/* ── Section heading ── */
 .skills-header .name {
     font-size: 50px;
     font-weight: 700;
-    /* margin-bottom: 0px; */
     color: #ffffff;
+    display: inline-block;
+    position: relative;
 }
 
+/* animated aqua underline on title */
+.skills-header .name::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 0%;
+    height: 3px;
+    background: aqua;
+    border-radius: 3px;
+    box-shadow: 0 0 8px aqua;
+    animation: expandLine 1s ease 0.5s forwards;
+}
+
+@keyframes expandLine {
+    to { width: 100%; }
+}
+
+/* ── Cards grid ── */
 .skills-cards-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -38,25 +59,61 @@
     width: 100%;
 }
 
-
 .skills-category-card {
     background: transparent;
-    border: 1px solid #4b4b4b; /* Aligns with your native icon/button outer borders */
+    border: 1px solid #4b4b4b;
     border-radius: 16px;
     padding: 35px 30px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     text-align: left;
-    transition: 0.3s ease;
     width: 100%;
     height: 95%;
+
+    /* staggered card entrance */
+    opacity: 0;
+    animation: cardIn 0.6s ease forwards;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 
+.skills-category-card:nth-child(1) { animation-delay: 0.1s; }
+.skills-category-card:nth-child(2) { animation-delay: 0.2s; }
+.skills-category-card:nth-child(3) { animation-delay: 0.3s; }
+.skills-category-card:nth-child(4) { animation-delay: 0.4s; }
+.skills-category-card:nth-child(5) { animation-delay: 0.5s; }
+.skills-category-card:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes cardIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.97);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.skills-category-card:hover {
+    border-color: aqua;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.4),
+                0 0 60px rgba(0, 255, 255, 0.1);
+    transform: translateY(-6px);
+}
+
+/* ── Icon frame ── */
 .category-icon-frame {
-    font-size: 24px;
+    font-size: 26px;
     color: #cbd5e1;
     margin-bottom: 20px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.skills-category-card:hover .category-icon-frame {
+    color: aqua;
+    transform: scale(1.2) rotate(-5deg);
+    filter: drop-shadow(0 0 6px aqua);
 }
 
 .skills-category-card h3 {
@@ -64,8 +121,14 @@
     font-weight: 600;
     color: white;
     margin-bottom: 25px;
+    transition: color 0.3s ease;
 }
 
+.skills-category-card:hover h3 {
+    color: aqua;
+}
+
+/* ── Pills ── */
 .skills-pills-wrap {
     display: flex;
     flex-wrap: wrap;
@@ -83,18 +146,21 @@
     transition: 0.3s ease;
 }
 
-/* Reusing your home component interactive hover properties */
-.skills-category-card:hover {
-    border-color: aqua;
-    box-shadow: 0 0 20px aqua;
-}
-
 .skills-category-card:hover .skills-custom-pill {
-    border-color: #00ffff4d;
+    border-color: rgba(0, 255, 255, 0.35);
     color: white;
+    background: rgba(0, 255, 255, 0.05);
 }
 
-/* Bottom shelf applying your profile image multi-directional neon glow signature */
+.skills-custom-pill:hover {
+    background: rgba(0, 255, 255, 0.12) !important;
+    border-color: aqua !important;
+    color: aqua !important;
+    transform: translateY(-2px);
+    box-shadow: 0 0 8px rgba(0, 255, 255, 0.3);
+}
+
+/* ── Bottom shelf ── */
 .skills-shelf-row {
     display: flex;
     justify-content: center;
@@ -106,7 +172,7 @@
 .skills-shelf-block {
     background: transparent;
     border: 2px solid #4b4b4b;
-    border-radius: 50%; /* Swapped to circles to match your portfolio's profile style */
+    border-radius: 50%;
     width: 130px;
     height: 130px;
     display: flex;
@@ -114,7 +180,27 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
-    transition: 0.5s ease;
+    transition: 0.4s ease;
+
+    /* staggered entrance */
+    opacity: 0;
+    animation: shelfIn 0.6s ease forwards;
+}
+
+.skills-shelf-block:nth-child(1) { animation-delay: 0.7s; }
+.skills-shelf-block:nth-child(2) { animation-delay: 0.85s; }
+.skills-shelf-block:nth-child(3) { animation-delay: 1s; }
+.skills-shelf-block:nth-child(4) { animation-delay: 1.15s; }
+
+@keyframes shelfIn {
+    from {
+        opacity: 0;
+        transform: scale(0.6) rotate(-15deg);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
 }
 
 .shelf-icon-embed {
@@ -122,32 +208,38 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: transform 0.4s ease, filter 0.4s ease;
 }
 
 .shelf-icon-text {
     font-size: 13px;
     font-weight: 600;
     color: #cbd5e1;
+    transition: color 0.3s ease;
 }
 
-/* Replicated your complex image glowing ring profile logic inside the bottom shelf cards */
 .skills-shelf-block:hover {
-    transform: scale(1.08);
+    transform: scale(1.12) rotate(5deg);
     border-color: aqua;
-    box-shadow: 0 0 20px aqua;
+    box-shadow: 0 0 20px aqua, 0 0 50px rgba(0,255,255,0.15);
+}
+
+.skills-shelf-block:hover .shelf-icon-embed {
+    transform: scale(1.15);
+    filter: drop-shadow(0 0 8px currentColor);
 }
 
 .skills-shelf-block:hover .shelf-icon-text {
     color: white;
 }
 
-/* Technical Color branding */
-.theme-js { color: #f7df1e; }
+/* ── Tech color branding ── */
+.theme-js    { color: #f7df1e; }
 .theme-react { color: #61dafb; }
-.theme-java { color: #f89820; }
+.theme-java  { color: #f89820; }
 .theme-mongo { color: #47a248; }
 
-/* Dynamic Layout Scaling Adjustments */
+/* ── Responsive ── */
 @media (max-width: 1024px) {
     .skills-cards-grid {
         grid-template-columns: repeat(2, 1fr);

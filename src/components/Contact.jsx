@@ -1,12 +1,33 @@
 import "./Contact.css";
 import { FaLinkedin, FaPhone, FaEnvelope, FaLink } from "react-icons/fa";
 
+import { useEffect, useRef } from "react";
+
 function Contact() {
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          sectionRef.current.classList.add("visible");
+        }
+      },
+      { threshold: 0.2 },
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div id="contact">
+    <div id="contact" ref={sectionRef}>
       <div className="contact-layout">
         <div className="contact-header">
-          <h1 className="heading">Let's Connect</h1>
+          <h1 className="contact-heading">Let's Connect</h1>
         </div>
 
         <div className="contactInfo">
@@ -94,7 +115,7 @@ function Contact() {
             <label>Message</label>
             <textarea
               placeholder="Tell me about the opportunity"
-              rows="5"
+              rows="4"
               required
             ></textarea>
             <button type="submit">Send Message</button>

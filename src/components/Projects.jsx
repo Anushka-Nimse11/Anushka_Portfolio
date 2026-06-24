@@ -1,8 +1,28 @@
+import { useEffect } from "react";
 import "./Projects.css";
 import { FaCheck, FaGithub } from "react-icons/fa";
+
 function Projects() {
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      },
+      { threshold: 0.15 },
+    );
+
+    document.querySelectorAll(".MainProject, .project-header").forEach((el) => {
+      observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   const projects = [
-    // 1st project Zerodha
     {
       date: "Mar 2026 - Jun 2026",
       title: "Web-Based Stock Trading Platform",
@@ -22,12 +42,9 @@ function Projects() {
         "Modular architecture",
         "REST API integration for data handling",
       ],
-
       githubLink:
         "https://github.com/Anushka-Nimse11/Web-Based-Stock-Trading-Platform",
     },
-
-    // 2nd project StayHub
     {
       date: "Sep 2025 - Jan 2026",
       title: "StayHub",
@@ -48,11 +65,8 @@ function Projects() {
         "Secure authentication",
         "Responsive UI design",
       ],
-
       githubLink: "https://github.com/Anushka-Nimse11/stayHub",
     },
-
-    // 3rd Project Table booking
     {
       date: "Feb 2025 - May 2025",
       title: "Hotel Table Booking Management System",
@@ -66,7 +80,6 @@ function Projects() {
         "CRUD operations",
         "Responsive UI design",
       ],
-
       githubLink: "https://github.com/Anushka-Nimse11/hotelManagement",
     },
   ];
@@ -74,12 +87,10 @@ function Projects() {
   return (
     <div id="projects">
       <div className="project-layout">
-        {/* header */}
         <div className="project-header">
-          <h1 className="heading">Projects</h1>
+          <h1 className="project-heading">Projects</h1>
         </div>
 
-        {/* 2 columns of project */}
         <div className="projectInfo">
           {projects.map((project, index) => (
             <div className="MainProject" key={index}>
@@ -87,13 +98,13 @@ function Projects() {
               <h1>{project.title}</h1>
               <p>{project.description}</p>
 
-              <d-iv className="project-skills-wrap">
+              <div className="project-skills-wrap">
                 {project.skills.map((skill, i) => (
                   <span className="project-custom-skills" key={i}>
                     {skill}
                   </span>
                 ))}
-              </d-iv>
+              </div>
 
               <div className="project-feature-wrap">
                 {project.features.map((feature, i) => (

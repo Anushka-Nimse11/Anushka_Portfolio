@@ -1,127 +1,276 @@
-#projects{
+#projects {
     min-height: 100vh;
     display: flex;
     align-items: center;
     padding: 100px 15%;
 }
 
-.project-layout{
+.project-layout {
     display: flex;
     flex-direction: column;
     width: 100%;
     gap: 55px;
 }
 
-.heading{
-    color: #ffff;
+/* ── Heading ── */
+.project-heading {
     font-size: 50px;
     font-weight: 700;
+    display: inline-block;
+    position: relative;
+
+    background: linear-gradient(90deg, #ffffff 0%, #00ffff 50%, #ffffff 100%);
+    background-size: 250% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-position: 200% center;
 }
 
-.projectInfo{
+.project-header.visible .project-heading {
+    animation: shimmerText 3s linear infinite;
+}
+
+@keyframes shimmerText {
+    0%   { background-position: 200% center; }
+    100% { background-position: -200% center; }
+}
+
+.project-heading::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 0%;
+    height: 3px;
+    background: aqua;
+    border-radius: 3px;
+    box-shadow: 0 0 8px aqua;
+    transition: width 1s ease 0.2s;
+}
+
+.project-header.visible .project-heading::after {
+    width: 100%;
+}
+
+/* ── Grid ── */
+.projectInfo {
     width: 100%;
     gap: 30px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-
 }
 
-.MainProject{
+/* ── Cards ── */
+.MainProject {
     background: transparent;
     border: 1px solid #393838;
     border-radius: 16px;
-    color: #ffff;
+    color: #ffffff;
     padding: 25px;
     text-align: left;
     line-height: 1.5;
+    position: relative;
+    overflow: hidden;
 
+    opacity: 0;
+    transform: translateY(50px) scale(0.97);
+    transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.MainProject:nth-child(1) { transition-delay: 0.1s; }
+.MainProject:nth-child(2) { transition-delay: 0.25s; }
+.MainProject:nth-child(3) { transition-delay: 0.4s; }
+
+.MainProject.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.MainProject::before {
+    content: "";
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 2px;
+    background: linear-gradient(90deg, transparent, aqua, transparent);
+    transition: left 0.55s ease;
+}
+
+.MainProject:hover::before { left: 100%; }
+
+.MainProject::after {
+    content: "";
+    position: absolute;
+    bottom: -40px; right: -40px;
+    width: 100px; height: 100px;
+    background: radial-gradient(circle, rgba(0,255,255,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.MainProject:hover::after {
+    opacity: 1;
+    transform: scale(2.5);
+}
+
+.MainProject:hover {
+    border-color: aqua;
+    box-shadow: 0 0 24px rgba(0,255,255,0.35),
+                0 8px 40px rgba(0,255,255,0.08),
+                inset 0 0 30px rgba(0,255,255,0.03);
+    transform: translateY(-8px);
+}
+
+.MainProject:first-child { grid-column: 1 / span 2; }
+
+/* ── Date badge ── */
+.date {
+    color: aqua;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    opacity: 0.8;
+    padding: 3px 10px;
+    margin-bottom: 5px;
     transition: 0.3s ease;
 }
 
-.MainProject:hover{
-    border-color: aqua;
-    box-shadow: 0 0 20px aqua;
-}
 
-.MainProject:first-child{
-    grid-column: 1 / span 2;
-}
-
-
-.MainProject h1{
-    font-size: 30px;
+/* ── Title ── */
+.MainProject h1 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #ffffff;
     margin: 10px 0 15px;
+    transition: color 0.3s ease, letter-spacing 0.3s ease;
 }
 
-.date{
-    color: #94a3b8;      /* Light gray-blue */
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    /* margin-bottom: 3px; */
+.MainProject:hover h1 {
+    color: aqua;
+    letter-spacing: 0.4px;
 }
 
-.MainProject p{
-    font-size: 19px;
+/* ── Description ── */
+.MainProject p {
+    font-size: 16px;
     color: #858688;
     margin-bottom: 20px;
-    
+    line-height: 1.75;
+    transition: color 0.3s ease;
 }
 
-.project-skills-wrap{
+.MainProject:hover p { color: #a0aec0; }
+
+/* ── Skill pills ── */
+.project-skills-wrap {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
     margin-bottom: 20px;
 }
 
-
 .project-custom-skills {
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(255,255,255,0.03);
     border: 1px solid #4b4b4b;
     color: #cbd5e1;
-    font-size: 14px;
-    padding: 7px 14px;
+    font-size: 13px;
+    padding: 6px 14px;
     border-radius: 10px;
+    transition: 0.3s ease;
+    cursor: default;
 }
 
 .MainProject:hover .project-custom-skills {
-    border-color: #00ffff4d;
-    color: white;
+    border-color: rgba(0,255,255,0.25);
+    color: #e2e8f0;
+    background: rgba(0,255,255,0.04);
 }
 
+.project-custom-skills:hover {
+    border-color: aqua !important;
+    color: aqua !important;
+    transform: translateY(-3px);
+    box-shadow: 0 0 10px rgba(0,255,255,0.3);
+}
 
-.project-feature-wrap{
+/* ── Features ── */
+.project-feature-wrap {
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
     margin-bottom: 20px;
 }
 
-.project-custom-feature{
+.project-custom-feature {
     color: aqua;
-     display: flex;
-    align-items: center;
-    font-size: 14px;
-}
-
-.check-icon{
-    margin-right:7px;
-}
-
-.project-links{
-    margin-top: 15px;
-}
-
-.project-links a{
-    color: #d50311;
-    text-decoration: none;
-    font-size: 15px;
     display: flex;
     align-items: center;
-    gap: 8px;
+    font-size: 14px;
+    transition: transform 0.25s ease, text-shadow 0.25s ease;
+    cursor: default;
 }
 
-.github-icon{
+.project-custom-feature:hover {
+    transform: translateX(6px);
+    text-shadow: 0 0 8px rgba(0,255,255,0.6);
+}
+
+.check-icon { margin-right: 7px; font-size: 12px; }
+
+/* ── GitHub button ── */
+.project-links { margin-top: 15px; }
+
+.project-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 9px 22px;
+    border: 1px solid #4b4b4b;
+    border-radius: 10px;
+    transition: 0.35s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-links a::before {
+    content: "";
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: rgba(0,255,255,0.07);
+    transition: left 0.35s ease;
+}
+
+.project-links a:hover::before { left: 0; }
+
+.project-links a:hover {
+    color: aqua;
+    border-color: aqua;
+    box-shadow: 0 0 16px rgba(0,255,255,0.3);
+    transform: translateY(-3px);
+}
+
+.github-icon {
     font-size: 20px;
+    transition: transform 0.5s ease;
+}
+
+.project-links a:hover .github-icon {
+    transform: rotate(360deg) scale(1.2);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .projectInfo { grid-template-columns: 1fr; }
+    .MainProject:first-child { grid-column: 1; }
+    .project-heading { font-size: 42px; }
 }

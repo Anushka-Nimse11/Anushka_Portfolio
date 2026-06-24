@@ -1,79 +1,159 @@
-
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Calibri, Arial, sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Calibri, Arial, sans-serif;
 }
 
-body{
-    /* background-color: rgb(13, 15, 45); */
-    /* background: #020024; */
-background: linear-gradient(90deg,rgba(2, 0, 36, 1) 0%, rgb(13, 13, 76) 35%, rgb(25, 114, 132) 100%);
-    font-family: "Poppins", sans-serif;
+body {
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgb(13, 13, 76) 35%,
+    rgb(25, 114, 132) 100%
+  );
+  font-family: "Poppins", sans-serif;
 }
 
+/* ── Slide-down entrance on page load ── */
 .navbar {
-    /* background-color: rgb(14, 16, 50); */
-    /* background: #020024; */
-background: linear-gradient(90deg,rgba(2, 0, 36, 1) 0%, rgb(13, 13, 76) 35%, rgb(25, 114, 132) 100%);
-    color: white;
-    position: fixed;
-    padding: 40px 85px;
-    top: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 100;
-    border-bottom: 1px solid rgb(13, 13, 76);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgb(13, 13, 76) 35%,
+    rgb(25, 114, 132) 100%
+  );
+  color: white;
+  position: fixed;
+  padding: 40px 85px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  border-bottom: 1px solid  rgba(0, 255, 255, 0.15);
+
+  /* entrance animation */
+  animation: slideDown 0.7s ease forwards;
+
+  /* smooth transition for scroll shrink */
+  transition: padding 0.4s ease, background 0.4s ease,
+    box-shadow 0.4s ease, backdrop-filter 0.4s ease;
 }
 
-.navbar span{
-    color: aqua;
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.navbar h1{
-    position: relative;
-    font-size: 25px;
-    font-weight: 600;
-    text-decoration: none;
-    color: #fff;
-    margin-left: 100px;
+/* ── Scrolled state: shrinks + blurs ── */
+.navbar.scrolled {
+  padding: 18px 85px;
+  background: rgba(2, 0, 36, 0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 4px 30px rgba(0, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(0, 255, 255, 0.15);
 }
+
+/* ── Logo pulse on hover ── */
+.navbar span {
+  color: aqua;
+}
+
+/* .nav-logo {
+  position: relative;
+  font-size: 25px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #fff;
+  margin-left: 100px;
+  transition: text-shadow 0.3s ease;
+  cursor: default;
+} */
+
+/* .nav-logo:hover {
+  text-shadow: 0 0 12px aqua, 0 0 24px aqua;
+} */
+
 .navbar ul {
-    display: flex;
-    list-style: none;
+  display: flex;
+  list-style: none;
 }
 
 .navbar ul li {
-    margin-left: 35px;
-}
-.navbar a{
-    position: relative;
-    text-decoration: none;
-    color: #fff;
-    font-size: 18px;
-    transition: 0.3s;
-    margin: 0 10px;
+  margin-left: 35px;
+
+  /* staggered fade-in for each nav item */
+  opacity: 0;
+  animation: fadeInLink 0.5s ease forwards;
 }
 
-.navbar a:hover{
-    color: aqua;
+.navbar ul li:nth-child(1) { animation-delay: 0.3s; }
+.navbar ul li:nth-child(2) { animation-delay: 0.45s; }
+.navbar ul li:nth-child(3) { animation-delay: 0.6s; }
+.navbar ul li:nth-child(4) { animation-delay: 0.75s; }
+.navbar ul li:nth-child(5) { animation-delay: 0.9s; }
+
+@keyframes fadeInLink {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.navbar a.active{
-    color: aqua;
+.navbar a {
+  position: relative;
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  transition: color 0.3s, text-shadow 0.3s;
+  margin: 0 10px;
 }
 
-.navbar a.active::after{
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -7px;
+.navbar a:hover {
+  color: aqua;
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.6);
+}
+
+.navbar a.active {
+  color: aqua;
+}
+
+.navbar a.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -7px;
+  width: 100%;
+  height: 2px;
+  background-color: aqua;
+  border-radius: 3px;
+  box-shadow: 0 0 6px aqua;
+
+  /* animate underline sliding in */
+  animation: underlineIn 0.3s ease forwards;
+}
+
+@keyframes underlineIn {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+  to {
     width: 100%;
-    height: 2px;
-    background-color: aqua;
-    border-radius: 3px;
+    opacity: 1;
+  }
 }
