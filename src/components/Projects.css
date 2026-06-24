@@ -55,14 +55,14 @@
 
 .date{
     color: #94a3b8;      /* Light gray-blue */
-    font-size: 12px;
+    font-size: 10px;
     font-weight: 500;
     letter-spacing: 1px;
     /* margin-bottom: 3px; */
 }
 
 .MainProject p{
-    font-size: 20px;
+    font-size: 19px;
     color: #858688;
     margin-bottom: 20px;
     
@@ -90,6 +90,7 @@
     color: white;
 }
 
+
 .project-feature-wrap{
     display: flex;
     flex-wrap: wrap;
@@ -113,7 +114,7 @@
 }
 
 .project-links a{
-    color: #94a3b8;
+    color: #d50311;
     text-decoration: none;
     font-size: 15px;
     display: flex;

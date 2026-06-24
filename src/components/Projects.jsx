@@ -5,26 +5,26 @@ function Projects() {
     // 1st project Zerodha
     {
       date: "Mar 2026 - Jun 2026",
-      title: "StayHub",
+      title: "Web-Based Stock Trading Platform",
       description:
-        "Developed a full-stack property booking platform using the MERN stack and MVC architecture, enabling users to explore and book bungalows, houses, villas, and other stay options. Implemented secure authentication, CRUD operations, and a feedback and rating system for users to share their experiences.",
+        "Developed a full-stack Zerodha-inspired trading simulation platform using the MERN stack with modular architecture. It supports secure authentication, portfolio tracking, simulated buy/sell trading, and a role-based admin dashboard with REST API integration.",
       skills: [
         "React.js",
         "JavaScript",
-        "Tailwind CSS",
+        "Bootstrap",
         "Node.js",
         "Express.js",
         "MongoDB",
         "REST API",
       ],
       features: [
-        "Property browsing",
-        "User feedback and ratings",
-        "Secure authentication",
-        "Responsive UI design",
+        "Stock market trading simulation",
+        "Modular architecture",
+        "REST API integration for data handling",
       ],
 
-      githubLink: "https://github.com/Anushka-Nimse11/stayHub",
+      githubLink:
+        "https://github.com/Anushka-Nimse11/Web-Based-Stock-Trading-Platform",
     },
 
     // 2nd project StayHub
@@ -32,7 +32,7 @@ function Projects() {
       date: "Sep 2025 - Jan 2026",
       title: "StayHub",
       description:
-        "Developed a full-stack property booking platform using the MERN stack and MVC architecture, enabling users to explore and book bungalows, houses, villas, and other stay options. Implemented secure authentication, CRUD operations, and a feedback and rating system for users to share their experiences.",
+        "Developed a full-stack property booking platform using the MERN stack and MVC architecture, enabling users to browse and book various stay options. Implemented secure authentication, CRUD operations, and a feedback and rating system.",
       skills: [
         "React.js",
         "JavaScript",

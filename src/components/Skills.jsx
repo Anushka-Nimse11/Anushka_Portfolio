@@ -36,7 +36,7 @@ function Skills() {
     {
       title: "Programming Languages",
       icon: <FaJava />,
-      skills: ["Java", "JavaScript"],
+      skills: ["Java", "JavaScript", "SQL"],
     },
 
     {
