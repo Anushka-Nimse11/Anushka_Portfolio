@@ -26,7 +26,7 @@ function Home() {
 
           <div className="social-icons">
             <a
-              href="https://www.linkedin.com/in/anushka-nimse-96b15b29b/?skipRedirect=true"
+              href="https://www.linkedin.com/in/anushka-nimse-96b15b29b"
               target="_blank"
               rel="noopener noreferrer"
             >

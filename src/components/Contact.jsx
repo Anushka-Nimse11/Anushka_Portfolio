@@ -81,7 +81,7 @@ function Contact() {
               <div className="linkedinInfo">
                 <h3>LINKEDIN</h3>
                 <a
-                  href="https://www.linkedin.com/in/anushka-nimse-96b15b29b/"
+                  href="https://www.linkedin.com/in/anushka-nimse-96b15b29b"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
